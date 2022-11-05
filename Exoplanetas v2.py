@@ -57,6 +57,7 @@ Densidade_do_exoplaneta=float(((3*Massa_do_exoplaneta)/((4*Pi)*Raio_do_exoplanet
 #Raio_do_exoplaneta=float(sqrt(Profundidade_de_transito)*Raio_do_sol)
 Raio_orbital=float(((G*Massa_estrela*((Periodo_orbital*86400)**2))/(4*(Pi)**2))**(1/3))
 Probabilidade_de_transito=float((Raio_da_estrela/(Raio_orbital*(1-Excentricidade**2))))
+#Probabilidade_de_transito=float((Raio_da_estrela/Raio_orbital))
 Tempo_de_transito=float(((sqrt(Raio_orbital*G*Massa_estrela))*(2*Raio_da_estrela))/(G*Massa_estrela))  #Valor em segundos, dividir por 3600 para horas
 #Tempo_de_transito=13*((Massa_estrela/Massa_do_sol)**(-1/2))*((Raio_orbital/UA)**(1/2))*(Raio_da_estrela/Raio_do_sol) #Valor direto em horas
 Temperatura_de_equilibrio=Temperatura_estrela*((1-Albedo)**(1/4))*((Raio_da_estrela/(2*Raio_orbital))**(1/2))
@@ -66,7 +67,7 @@ Zona_habitavel_central=float(1*sqrt(Luminosidade_da_estrela/Luminosidade_do_sol)
 Zona_habitavel_externa=float(1.77*sqrt(Luminosidade_da_estrela/Luminosidade_do_sol))
 Insolação_do_exoplaneta=float((Luminosidade_da_estrela/Luminosidade_do_sol)*(UA**2/(Raio_orbital**2)))
 
-
+Baricentro=Raio_orbital*(Massa_do_exoplaneta/(Massa_estrela+Massa_do_exoplaneta))
 
 #Exibição dos resultados
 print('')
@@ -100,3 +101,4 @@ print('Externa:', Zona_habitavel_externa, "UA")
 print('-'*30)
 print('Densidade do exoplaneta:', Densidade_do_exoplaneta, 'g/cm³')
 print('-'*30)
+print('Baricentro:', "%.10e"%Baricentro, 'm')
